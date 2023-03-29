@@ -14,7 +14,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import NextJsIcon from '@/components/Icons/NextJs';
 import { Box } from '@mui/system';
 
-export default function Sidebar({ open, drawerWidth }) {
+export default function Sidebar({ open, drawerWidth, handleDrawerClose }) {
 
     const theme = useTheme();
 
