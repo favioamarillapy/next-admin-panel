@@ -68,9 +68,13 @@ export default function Sidebar({ open, drawerWidth, handleDrawerClose }) {
     return (
         <Drawer variant="permanent" open={open}>
             <DrawerHeader>
-                <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
-                    <NextJsIcon width={80} height={80} />
-                </Box>
+                {
+                    open && (
+                        <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+                            <NextJsIcon width={80} height={80} />
+                        </Box>
+                    )
+                }
                 <IconButton onClick={handleDrawerClose}>
                     {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
                 </IconButton>
