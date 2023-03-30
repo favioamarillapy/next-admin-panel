@@ -12,7 +12,7 @@ const drawerWidth = DRAWER_WIDTH;
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })
     (({ theme, open }) => ({
         flexGrow: 1,
-        padding: theme.spacing(10, 4, 0, 4),
+        padding: theme.spacing(12, 4, 0, 4),
         transition: theme.transitions.create('margin', {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
