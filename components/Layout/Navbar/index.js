@@ -53,7 +53,7 @@ export default function Navbar({ open, handleDrawerOpen }) {
                     <MenuIcon />
                 </IconButton>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                    {!open && <NextJsIcon width={80} color='#000' />}
+                    
                 </Typography>
                 <div>
                     <IconButton
