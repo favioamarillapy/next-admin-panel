@@ -1,12 +1,10 @@
 import MainLayout from "@/components/Layout";
-import { ThemeProvider, Typography } from "@mui/material";
-import { lightTheme } from "@/themes/theme";
+import { Box, Typography } from "@mui/material";
 
 
 export default function Home() {
   return (
-    <ThemeProvider theme={lightTheme}>
-      <MainLayout>
+      <Box>
         <Typography paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
@@ -21,7 +19,7 @@ export default function Home() {
           consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa
           sapien faucibus et molestie ac.
         </Typography>
-      </MainLayout>
-    </ThemeProvider>
+
+      </Box>
   )
 }
