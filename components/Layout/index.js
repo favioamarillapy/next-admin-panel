@@ -1,8 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
-import Typography from '@mui/material/Typography';
 import { DRAWER_WIDTH } from '@/constants/constants';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
@@ -31,16 +30,31 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })
 
 
 export default function MainLayout({ children }) {
+
     const [open, setOpen] = useState(true);
 
     const handleDrawerOpen = () => {
-        console.log('handleDrawerOpen');
         setOpen(true);
     };
 
     const handleDrawerClose = () => {
         setOpen(false);
     };
+
+
+    useEffect(() => {
+        function handleResize() {
+            const userAgent =
+                typeof window.navigator === "undefined" ? "" : navigator.userAgent;
+            const mobile = Boolean(
+                userAgent
+                    .match(/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i)
+            );
+            setOpen(!mobile);
+        }
+
+        window.addEventListener('resize', handleResize)
+    }, []);
 
     return (
         <Box sx={{ display: 'flex' }}>
@@ -50,7 +64,6 @@ export default function MainLayout({ children }) {
                 open={open}
                 handleDrawerOpen={handleDrawerOpen}
             />
-
 
             <Sidebar
                 open={open}
