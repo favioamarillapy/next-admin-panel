@@ -6,7 +6,7 @@ export const lightTheme = createTheme({
             main: '#4b4561',
         },
         secondary: {
-            main: '#585c41'
+            main: '#9155FD'
         }
     },
     components: {
@@ -18,6 +18,13 @@ export const lightTheme = createTheme({
                     boxShadow: 'none'
                 }
             }
-        }
+        },
+        MuiButton: {
+            styleOverrides: {
+                root: {
+                    borderRadius: 10
+                }
+            }
+        },
     }
 });
