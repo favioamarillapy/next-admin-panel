@@ -16,16 +16,19 @@ const ActiveLink = ({ children, activeClassName, text, ...props }) => {
 
     return (
         <Link {...props}>
-            <ListItem disablePadding className={className || null}>
+            <ListItem disablePadding className={className || null} >
                 <ListItemButton sx={{
                     paddingTop: '5px',
                     paddingBottom: '5px',
+                    borderRadius: '0px 20px 20px 0px',
+                    "&:hover": {
+                        backgroundColor: "#e7e3fc17",
+                    }
                 }}>
                     <ListItemIcon>
                         {cloneElement(child, {
                             className: 'menu-item-icon',
                         })}
-                        {/* <PersonIcon sx={{ color: '#fff' }} /> */}
                     </ListItemIcon>
                     <ListItemText
                         primary={
