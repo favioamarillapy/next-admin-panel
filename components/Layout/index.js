@@ -57,24 +57,28 @@ export default function MainLayout({ children }) {
     }, []);
 
     return (
-        <Box sx={{ display: 'flex' }}>
-            <CssBaseline />
+        // <Box sx={{ display: 'flex' }}>
+        //     <CssBaseline />
 
-            <Navbar
-                open={open}
-                handleDrawerOpen={handleDrawerOpen}
-            />
+        //     <Navbar
+        //         open={open}
+        //         handleDrawerOpen={handleDrawerOpen}
+        //     />
 
-            <Sidebar
-                open={open}
-                handleDrawerClose={
-                    handleDrawerClose}
-            />
+        //     <Sidebar
+        //         open={open}
+        //         handleDrawerClose={
+        //             handleDrawerClose}
+        //     />
 
 
-            <Main open={open}>
-                {children}
-            </Main>
-        </Box>
+        //     <Main open={open}>
+        //         {children}
+        //     </Main>
+        // </Box>
+        
+        <>
+            {children}
+        </>
     );
 }

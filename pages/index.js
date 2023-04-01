@@ -1,4 +1,3 @@
-import MainLayout from "@/components/Layout";
 import { Box, Typography } from "@mui/material";
 
 
@@ -19,7 +18,6 @@ export default function Home() {
           consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa
           sapien faucibus et molestie ac.
         </Typography>
-
       </Box>
   )
 }

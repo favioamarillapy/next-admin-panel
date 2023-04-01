@@ -1,4 +1,6 @@
 * {
+  font-family: 'Calibri', 'Open Sans', 'sans-serif' !important;
+
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -6,7 +8,8 @@
 
 html,
 body {
-  max-width: 100vw;
+  height: 100vh;
+  width: 100vw;
   overflow-x: hidden;
 }
 
