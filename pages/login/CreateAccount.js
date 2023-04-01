@@ -6,6 +6,7 @@ import GoogleIcon from '@mui/icons-material/Google';
 import GitHubIcon from '@mui/icons-material/GitHub';
 
 export default function CreateAccount() {
+
     return (
         <>
             <Box
@@ -47,11 +48,16 @@ export default function CreateAccount() {
                 </Typography>
             </Divider>
 
-            <Box sx={{ display: 'flex', justifyContent: 'space-evenly' }}>
-                <FacebookIcon color="blue" />
-                <TwitterIcon color="blue" />
-                <GoogleIcon color="blue" />
-                <GitHubIcon color="blue" />
+            <Box sx={{
+                display: 'flex',
+                justifyContent: 'space-evenly',
+                paddingLeft: 15,
+                paddingRight: 15
+            }}>
+                <FacebookIcon />
+                <TwitterIcon />
+                <GoogleIcon />
+                <GitHubIcon />
             </Box>
         </>
     )

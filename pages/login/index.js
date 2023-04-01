@@ -1,42 +1,48 @@
-import NextJsIcon from "@/components/Icons/NextJs";
-import { Box, Button, Divider, Grid, TextField, Typography } from "@mui/material";
-import Link from "next/link";
-import CreateAccount from "./CreateAccount";
+import { useEffect, useState } from "react"
+import { Box, Button, TextField, Typography } from "@mui/material"
+import CreateAccount from "./CreateAccount"
 
 
 export default function LoginPage() {
 
+    const [isMobile, setIsMobile] = useState(false)
+
+    useEffect(() => {
+        function handleResize() {
+            const userAgent =
+                typeof window.navigator === "undefined" ? "" : navigator.userAgent;
+            const mobile = Boolean(
+                userAgent
+                    .match(/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i)
+            );
+            setIsMobile(mobile);
+        }
+
+        window.addEventListener('resize', handleResize)
+    }, [])
+
     return (
-        <Box sx={{
-            minHeight: '100vh',
-            overflowX: 'hidden',
-            display: 'flex',
-        }}>
+        <Box
+            sx={{
+                height: '100vh',
+                width: '100%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundImage: 'linear-gradient(0deg, #4b4561 10%, #9155FD 90%)',
+            }}
+        >
             <Box
                 sx={{
-                    height: '100vh',
-                    width: '70%',
-                    backgroundImage: 'url(/assets/images/bg-login.png)',
-                    backgroundSize: 'cover',
-                    backgroundRepeat: 'no-repeat'
-
-                }}
-            >
-                <Box sx={{ marginLeft: 3 }}>
-                    <NextJsIcon width={100} />
-                </Box>
-            </Box>
-
-            <Box
-                sx={{
-                    height: '100vh',
-                    width: '30%',
-                    background: '#fff',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    padding: 7
+                    height: isMobile ? '100vh' : '70vh',
+                    width: isMobile ? '100%' : '30%',
+                    background: '#fff',
+                    borderRadius: isMobile ? 0 : 10,
+                    padding: isMobile ? 2 : 7
                 }}
             >
                 <Typography variant="h5" color={'#534F5A'} fontWeight={600}>Welcome to Admin Panel 👋🏻</Typography>
@@ -78,13 +84,10 @@ export default function LoginPage() {
                         LOGIN
                     </Button>
 
-
                     <CreateAccount />
-
-
 
                 </Box>
             </Box>
-        </Box >
+        </Box>
     )
 }
