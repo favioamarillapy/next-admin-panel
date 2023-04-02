@@ -18,7 +18,7 @@ export default function CreateAccount() {
                     fontWeight={400}
                     color={'#3a354199'}
                 >
-                    New on our platform?
+                    New on our platform? &nbsp;&nbsp;
                 </Typography>
 
                 <Typography

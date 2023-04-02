@@ -3,11 +3,11 @@ import { Box, Button, TextField, Typography } from "@mui/material"
 import CreateAccount from "@/components/Auth/CreateAccount"
 
 
-
 export default function LoginPage() {
 
     const [isMobile, setIsMobile] = useState(false)
 
+    const [fullName, setFullName] = useState('Favio Amarilla Miño')
     const [username, setUsername] = useState('favioamarillapy')
     const [password, setPassword] = useState('123456789')
 
@@ -43,14 +43,24 @@ export default function LoginPage() {
                     padding: isMobile ? 2 : 7
                 }}
             >
-                <Typography variant="h5" color={'#534F5A'} fontWeight={600}>Welcome to Admin Panel 👋🏻</Typography>
-                <Typography variant="p" color={'#3a354199'} marginBottom={4} fontWeight={400}>Please sign-in to your account </Typography>
+                <Typography variant="h5" color={'#534F5A'} fontWeight={600}>Adventure starts here 🚀</Typography>
+                <Typography variant="p" color={'#3a354199'} marginBottom={4} fontWeight={400}> Make your app management easy</Typography>
 
                 <Box
                     sx={{
                         width: '100%'
                     }}
                 >
+                    <TextField
+                        label="Full Name"
+                        type="text"
+                        margin="normal"
+                        fullWidth
+                        color="secondary"
+                        name="fullName"
+                        value={fullName}
+                        onChange={e => setFullName(e.target.value)}
+                    />
                     <TextField
                         label="Username"
                         type="text"
