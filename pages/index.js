@@ -1,8 +1,10 @@
+import MainLayout from "@/components/Layout/MainLayout";
 import { Box, Typography } from "@mui/material";
 
 
 export default function Home() {
   return (
+    <MainLayout>
       <Box>
         <Typography paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -19,5 +21,6 @@ export default function Home() {
           sapien faucibus et molestie ac.
         </Typography>
       </Box>
+    </MainLayout>
   )
 }
