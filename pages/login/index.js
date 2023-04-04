@@ -1,13 +1,28 @@
 import { useState } from "react"
 import { Box, Button, TextField, Typography } from "@mui/material"
+import { signIn } from 'next-auth/react'
 import AuthLayout from "@/components/Layout/AuthLayout"
+import { useRouter } from "next/router"
 
 
 export default function LoginPage() {
 
-    const [username, setUsername] = useState('favioamarillapy')
-    const [password, setPassword] = useState('123456789')
+    const router = useRouter()
+    const [username, setUsername] = useState('adminGanadera')
+    const [password, setPassword] = useState('ganacom2017')
 
+
+    const login = async () => {
+        const { ok, status } = await signIn("login", {
+            username,
+            password,
+            redirect: false,
+        });
+
+        if (ok && status == 200) {
+            router.push('/')
+        }
+    }
 
     return (
         <AuthLayout
@@ -54,6 +69,7 @@ export default function LoginPage() {
                     variant="contained"
                     color="secondary"
                     fullWidth
+                    onClick={login}
                 >
                     LOGIN
                 </Button>
