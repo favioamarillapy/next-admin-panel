@@ -8,8 +8,8 @@ import { useRouter } from "next/router"
 export default function LoginPage() {
 
     const router = useRouter()
-    const [username, setUsername] = useState('adminGanadera')
-    const [password, setPassword] = useState('ganacom2017')
+    const [username, setUsername] = useState('admin')
+    const [password, setPassword] = useState('admin')
 
 
     const login = async () => {
