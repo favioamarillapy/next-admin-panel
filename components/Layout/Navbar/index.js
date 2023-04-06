@@ -8,6 +8,8 @@ import { Avatar, Menu, MenuItem, Typography } from '@mui/material';
 import { DRAWER_WIDTH } from '@/constants/constants';
 import { AccountCircle } from '@mui/icons-material';
 import NextJsIcon from '@/components/Icons/NextJs';
+import { signOut } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 const drawerWidth = DRAWER_WIDTH;
 
@@ -29,6 +31,8 @@ const AppBar = styled(MuiAppBar, {
 }));
 
 export default function Navbar({ open, handleDrawerOpen }) {
+
+    const router = useRouter()
     const [anchorEl, setAnchorEl] = useState(null);
 
     const handleMenu = (event) => {
@@ -36,6 +40,10 @@ export default function Navbar({ open, handleDrawerOpen }) {
     };
 
     const handleClose = () => {
+        signOut()
+        localStorage.clear()
+
+        router.push('login')
         setAnchorEl(null);
     };
 
@@ -53,7 +61,7 @@ export default function Navbar({ open, handleDrawerOpen }) {
                     <MenuIcon />
                 </IconButton>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                    
+
                 </Typography>
                 <div>
                     <IconButton
