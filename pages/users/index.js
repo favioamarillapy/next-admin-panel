@@ -1,7 +1,9 @@
 import { Box, Button, Divider, Grid, Pagination, Typography } from "@mui/material";
+import { useRouter } from "next/router";
 import AddIcon from '@mui/icons-material/Add';
 import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import EditIcon from '@mui/icons-material/Edit';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -10,7 +12,6 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import MainLayout from "@/components/Layout/MainLayout";
-import { useRouter } from "next/router";
 
 
 function createData(
@@ -39,6 +40,11 @@ export default function UserListPage() {
     const handleUserAdd = () => {
         router.push('users/add')
     }
+
+    const handleUserEdit = (id) => {
+        router.push('users/edit/' + id)
+    }
+
     return (
         <MainLayout>
             <Grid container spacing={2}
@@ -89,6 +95,7 @@ export default function UserListPage() {
                                             <TableCell component="th">ID</TableCell>
                                             <TableCell component="th">Full Name</TableCell>
                                             <TableCell component="th">Username</TableCell>
+                                            <TableCell component="th" align="center">Actions</TableCell>
                                         </TableRow>
                                     </TableHead>
                                     <TableBody>
@@ -100,6 +107,11 @@ export default function UserListPage() {
                                                 <TableCell>{row.id}</TableCell>
                                                 <TableCell>{row.fullName}</TableCell>
                                                 <TableCell>{row.username}</TableCell>
+                                                <TableCell align="center">
+                                                    <Button onClick={() => handleUserEdit(row.id)}>
+                                                        <EditIcon />
+                                                    </Button>
+                                                </TableCell>
                                             </TableRow>
                                         ))}
                                     </TableBody>

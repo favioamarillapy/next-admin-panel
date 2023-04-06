@@ -13,6 +13,11 @@ export default function UserForm() {
     const id = router.query['id'];
 
 
+    const handleUserSave = () => {
+        router.push('/users')
+    }
+
+
     return (
         <Grid container spacing={2}
             sx={{
@@ -35,6 +40,21 @@ export default function UserForm() {
 
 
             <Grid item md={6} sm={12}>
+
+                {
+                    id && (
+                        <TextField
+                            label="ID"
+                            type="number"
+                            margin="normal"
+                            fullWidth
+                            color="secondary"
+                            name="id"
+                            value={id}
+                            disabled={true}
+                        />
+                    )
+                }
                 <TextField
                     label="Full Name"
                     type="text"
@@ -74,6 +94,7 @@ export default function UserForm() {
                     <Button
                         variant="contained"
                         color="secondary"
+                        onClick={handleUserSave}
                     >
                         Accept
                     </Button>
@@ -81,6 +102,7 @@ export default function UserForm() {
                     <Button
                         variant="outlined"
                         color="error"
+                        onClick={handleUserSave}
                     >
                         Cancel
                     </Button>
